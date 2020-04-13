@@ -56,8 +56,8 @@ public class MainWindow extends JFrame {
         helpMenu = new JMenu();
         aboutMenu = new JMenuItem();
 
-        setTitle("Steganography by Group11");
-        piclabel = new javax.swing.JLabel(new javax.swing.ImageIcon("Images/stego.jpg"));
+        setTitle("Steganography by Group6");
+        piclabel = new javax.swing.JLabel(new javax.swing.ImageIcon("Images/"));
         piclabel.setBounds(0, 0, 600, 400);
         add(piclabel);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -164,7 +164,7 @@ public class MainWindow extends JFrame {
 
     private void aboutMenuActionPerformed(java.awt.event.ActionEvent evt) {
         javax.swing.JOptionPane.showMessageDialog(this,
-                "Steganography\n\n" + "Created by : Group11",
+                "Steganography\n\n" + "Created by : Group6",
                 "About", javax.swing.JOptionPane.PLAIN_MESSAGE);
     }
 
