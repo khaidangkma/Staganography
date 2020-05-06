@@ -5,6 +5,7 @@ import java.awt.Color;
 import javax.swing.*;
 
 import com.mtala3t.steganography.util.SoundManger;
+import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -28,9 +29,9 @@ public class MainWindow extends JFrame {
     private JMenuItem embedImageMenu;
     private JMenuItem extractImageMenu;
     private JMenuItem exitmenu;
-    private JMenuItem aboutMenu;
+//    private JMenuItem aboutMenu;
 
-    public javax.swing.JLabel piclabel;
+    public javax.swing.JPanel piclabel;
 
     public MainWindow() {
         initComponents();
@@ -44,7 +45,6 @@ public class MainWindow extends JFrame {
 
         panel = new JDesktopPane();
         panel.setBackground(Color.WHITE);
-
         jMenuBar = new JMenuBar();
 
         fileMenu = new JMenu();
@@ -54,12 +54,76 @@ public class MainWindow extends JFrame {
         extractImageMenu = new JMenuItem();
         embedImageMenu = new JMenuItem();
         helpMenu = new JMenu();
-        aboutMenu = new JMenuItem();
+//        aboutMenu = new JMenuItem();
 
-        setTitle("Steganography by Group6");
-        piclabel = new javax.swing.JLabel(new javax.swing.ImageIcon("Images/"));
+        JTextField jt = new JTextField();
+        jt.setText("abc");
+        jt.setBounds(10, 10, 100, 100);
+        
+        
+        setTitle("Steganography");
+        piclabel = new javax.swing.JPanel();
         piclabel.setBounds(0, 0, 600, 400);
-        add(piclabel);
+//        add(piclabel);
+        
+        JButton buttonEmbedAudio = new JButton();
+        buttonEmbedAudio.setText("Embed Data To Audio");
+        buttonEmbedAudio.setBounds(10, 0, 590, 70);
+        panel.add(buttonEmbedAudio);
+        buttonEmbedAudio.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                embedMenuActionPerformed(e);
+            }
+        });
+        JButton buttonExportAudio = new JButton();
+        buttonExportAudio.setText("Export Data From Audio");
+        buttonExportAudio.setBounds(10, 70, 590, 70);
+        buttonExportAudio.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                extractmenuActionPerformed(e);
+            }
+        });
+        panel.add(buttonExportAudio);
+        
+        JButton buttonEmbedImage = new JButton();
+        buttonEmbedImage.setText("Embed Data To Image");
+        buttonEmbedImage.setBounds(10, 140, 590, 70);
+        buttonEmbedImage.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                embedMessage = new EmbedMessage();
+                embedMessage.setVisible(true);
+            }
+        });
+        panel.add(buttonEmbedImage);
+
+        JButton buttonExportImage = new JButton();
+        buttonExportImage.setText("Export Data From Image");
+        buttonExportImage.setBounds(10, 210, 590, 70);
+        buttonExportImage.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                newClass = new NewClass();
+                newClass.setVisible(true);
+            }
+        });
+        panel.add(buttonExportImage);
+        
+        JButton buttonExit = new JButton();
+        buttonExit.setText("Exit");
+        buttonExit.setBounds(10, 280, 590, 70);
+        buttonExit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
+        panel.add(buttonExit);
+        
+        
+//        piclabel.add(jt);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 exitForm(evt);
@@ -67,72 +131,72 @@ public class MainWindow extends JFrame {
         });
         getContentPane().add(panel, java.awt.BorderLayout.CENTER);
 
-        fileMenu.setMnemonic('F');
-        fileMenu.setText("File");
-        helpMenu.setMnemonic('h');
-        helpMenu.setText("Help");
-        embedMenu.setMnemonic('m');
-        embedMenu.setText("Embed Data");
-        embedMenu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                embedMenuActionPerformed(evt);
-            }
-        });
-        fileMenu.add(embedMenu);
-        extractMenu.setMnemonic('t');
-        extractMenu.setText("Extract Data");
-        extractMenu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                extractmenuActionPerformed(evt);
-            }
-        });
+//        fileMenu.setMnemonic('F');
+//        fileMenu.setText("File");
+//        helpMenu.setMnemonic('h');
+//        helpMenu.setText("Help");
+//        embedMenu.setMnemonic('m');
+//        embedMenu.setText("Embed Data to Audio");
+//        embedMenu.addActionListener(new java.awt.event.ActionListener() {
+//            public void actionPerformed(java.awt.event.ActionEvent evt) {
+//                embedMenuActionPerformed(evt);
+//            }
+//        });
+//        fileMenu.add(embedMenu);
+//        extractMenu.setMnemonic('t');
+//        extractMenu.setText("Extract Data From ");
+//        extractMenu.addActionListener(new java.awt.event.ActionListener() {
+//            public void actionPerformed(java.awt.event.ActionEvent evt) {
+//                extractmenuActionPerformed(evt);
+//            }
+//        });
+//
+//        fileMenu.add(extractMenu);
+//
+//        embedImageMenu.setMnemonic('I');
+//        embedImageMenu.setText("Embed Image");
+//        embedImageMenu.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                embedMessage = new EmbedMessage();
+//                embedMessage.setVisible(true);
+//
+//                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//            }
+//        });
+//        fileMenu.add(embedImageMenu);
+//
+//        extractImageMenu.setMnemonic('i');
+//        extractImageMenu.setText("Extract Image");
+//        extractImageMenu.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                newClass = new NewClass();
+//                newClass.setVisible(true);
+////                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//            }
+//        });
+//
+//        fileMenu.add(extractImageMenu);
+//
+//        exitmenu.setMnemonic('x');
+//        exitmenu.setText("Exit");
+//        exitmenu.addActionListener(new java.awt.event.ActionListener() {
+//            public void actionPerformed(java.awt.event.ActionEvent evt) {
+//                exitmenuActionPerformed(evt);
+//            }
+//        });
 
-        fileMenu.add(extractMenu);
-
-        embedImageMenu.setMnemonic('I');
-        embedImageMenu.setText("Embed Image");
-        embedImageMenu.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                embedMessage = new EmbedMessage();
-                embedMessage.setVisible(true);
-
-                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-        });
-        fileMenu.add(embedImageMenu);
-
-        extractImageMenu.setMnemonic('i');
-        extractImageMenu.setText("Extract Image");
-        extractImageMenu.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                newClass = new NewClass();
-                newClass.setVisible(true);
-//                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-        });
-
-        fileMenu.add(extractImageMenu);
-
-        exitmenu.setMnemonic('x');
-        exitmenu.setText("Exit");
-        exitmenu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exitmenuActionPerformed(evt);
-            }
-        });
-
-        helpMenu.add(aboutMenu);
-        aboutMenu.setMnemonic('a');
-        aboutMenu.setText("About");
-        aboutMenu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                aboutMenuActionPerformed(evt);
-            }
-        });
+//        helpMenu.add(aboutMenu);
+//        aboutMenu.setMnemonic('a');
+//        aboutMenu.setText("About");
+//        aboutMenu.addActionListener(new java.awt.event.ActionListener() {
+//            public void actionPerformed(java.awt.event.ActionEvent evt) {
+//                aboutMenuActionPerformed(evt);
+//            }
+//        });
         fileMenu.add(exitmenu);
-        helpMenu.add(aboutMenu);
+//        helpMenu.add(aboutMenu);
         jMenuBar.add(fileMenu);
         jMenuBar.add(helpMenu);
 
@@ -178,18 +242,18 @@ public class MainWindow extends JFrame {
     public void Exit() {
         int res = JOptionPane.showConfirmDialog(this, "Are you sure you want to exit?", "Exit Confirmation", JOptionPane.YES_NO_OPTION);
 
-        if (res == JOptionPane.YES_OPTION) {
-
-            SoundManger souManger = new SoundManger("Sounds/goodbye.wav");
-            souManger.play();
-
-            setVisible(false);
-            dispose();
-            System.exit(0);
-
-        } else {
-            setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-        }
+//        if (res == JOptionPane.YES_OPTION) {
+//
+//            SoundManger souManger = new SoundManger("Sounds/goodbye.wav");
+//            souManger.play();
+//
+//            setVisible(false);
+//            dispose();
+//            System.exit(0);
+//
+//        } else {
+//            setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+//        }
     }
 
 }
